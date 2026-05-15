@@ -1,0 +1,31 @@
+# Decisoes tecnicas do projeto
+
+## Escolha da arquitetura serverless
+
+A arquitetura foi pensada para reduzir custos e simplificar a operacao da farmacia ficticia. Por isso, foram priorizados servicos gerenciados e com cobranca conforme o uso.
+
+## Por que Amazon S3?
+
+O Amazon S3 foi escolhido para armazenar arquivos estaticos da plataforma, como HTML, CSS, JavaScript, imagens de produtos e documentos. Essa escolha reduz a necessidade de servidores proprios apenas para guardar arquivos.
+
+## Por que AWS Lambda?
+
+O AWS Lambda foi escolhido para processar pedidos e regras de negocio sem manter servidores ligados o tempo todo. Isso ajuda a reduzir custos, principalmente em uma aplicacao com demanda variavel.
+
+## Por que Amazon DynamoDB?
+
+O Amazon DynamoDB foi escolhido para armazenar dados de produtos e pedidos. Como e um banco NoSQL gerenciado, ele reduz tarefas de administracao, manutencao e provisionamento manual.
+
+## Por que nao usar servidor EC2 neste primeiro momento?
+
+Como o objetivo do desafio e propor reducao de custos imediatos, uma instancia EC2 poderia gerar custos recorrentes mesmo em periodos de pouco acesso. A abordagem serverless permite iniciar com uma estrutura mais simples e pagar conforme a utilizacao.
+
+## Evolucao proposta
+
+A arquitetura pode evoluir futuramente com:
+
+- Amazon API Gateway para expor a Lambda como API;
+- Amazon Cognito para autenticacao de usuarios;
+- Amazon CloudWatch para logs e monitoramento;
+- Amazon CloudFront para distribuir o site com melhor desempenho;
+- AWS IAM com politicas mais restritas para seguranca em ambiente real.

@@ -1,0 +1,34 @@
+# Evidencias de teste local
+
+## Teste da funcao Lambda
+
+A funcao `processar-pedido.js` pode ser executada localmente com Node.js.
+
+Comando utilizado:
+
+```bash
+cd src/lambda
+npm install
+npm start
+```
+
+Resultado esperado:
+
+```text
+Pedido processado: {
+  pedidoId: "PED-...",
+  cliente: "Cliente Teste",
+  produto: "Vitamina C",
+  quantidade: 1,
+  status: "Recebido",
+  dataPedido: "..."
+}
+```
+
+## Teste do front-end
+
+O arquivo `src/frontend/index.html` pode ser aberto no navegador. Ao preencher o formulario de pedido, a pagina exibe uma mensagem de pedido simulado com sucesso.
+
+## Observacao
+
+Este projeto e educacional. A integracao real entre front-end, API, Lambda e DynamoDB dependeria da criacao de uma API com Amazon API Gateway e das permissoes adequadas na conta AWS.

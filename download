@@ -1,0 +1,172 @@
+# Projeto AWS - Plataforma Virtual para Farmácia
+
+![Status](https://img.shields.io/badge/status-concluido-brightgreen)
+![AWS](https://img.shields.io/badge/AWS-S3%20%7C%20Lambda%20%7C%20DynamoDB-orange)
+![DIO](https://img.shields.io/badge/projeto-DIO-blue)
+
+## Sobre o projeto
+
+Este repositório apresenta uma proposta de arquitetura em nuvem para uma farmácia fictícia da empresa **Abstergo Industries**. O objetivo é demonstrar como uma plataforma virtual simples pode ser estruturada com serviços da AWS, priorizando redução de custos, escalabilidade e menor necessidade de manutenção de infraestrutura.
+
+A solução foi criada para o desafio prático da DIO e inclui relatório técnico, diagrama de arquitetura, exemplo de front-end, função Lambda, modelos de dados e template inicial de infraestrutura.
+
+## Responsável
+
+**Geovanna Eduarda da Silva**
+
+## Problema proposto
+
+Uma farmácia fictícia precisa iniciar sua presença digital sem investir em servidores físicos, banco de dados tradicional ou estrutura local de armazenamento. Para isso, foi proposta uma arquitetura cloud com três serviços principais da AWS.
+
+## Objetivo
+
+Criar uma base de plataforma virtual para uma farmácia, com:
+
+- Página web estática para apresentação da farmácia e dos produtos;
+- Simulação de envio de pedido pelo cliente;
+- Processamento serverless com AWS Lambda;
+- Modelo de dados para produtos e pedidos;
+- Armazenamento de arquivos com Amazon S3;
+- Banco de dados NoSQL com Amazon DynamoDB;
+- Relatório de implementação com foco em redução de custos.
+
+## Serviços AWS escolhidos
+
+| Serviço | Uso no projeto | Motivo da escolha |
+|---|---|---|
+| Amazon S3 | Hospedar arquivos estáticos, imagens e documentos | Reduz custo com servidores de arquivos e permite armazenamento escalável |
+| AWS Lambda | Processar pedidos e regras de negócio | Executa código sob demanda, sem manter servidor ligado continuamente |
+| Amazon DynamoDB | Armazenar produtos, clientes e pedidos | Banco gerenciado, escalável e com cobrança sob demanda |
+
+## Arquitetura proposta
+
+```text
+Cliente acessa a plataforma
+        |
+        v
+Amazon S3 - arquivos estáticos, imagens e documentos
+        |
+        v
+AWS Lambda - processamento de pedidos e validações
+        |
+        v
+Amazon DynamoDB - produtos, clientes, pedidos e status
+```
+
+O diagrama visual está disponível em:
+
+```text
+arquitetura/diagrama-arquitetura.png
+```
+
+## Estrutura do repositório
+
+```text
+projeto-aws-farmacia/
+|-- README.md
+|-- LICENSE
+|-- relatorio-implementacao-aws.md
+|-- relatorio-implementacao-aws.pdf
+|-- descricao-github.md
+|-- arquitetura/
+|   |-- diagrama-arquitetura.png
+|   |-- diagrama-arquitetura.svg
+|-- banco-dados/
+|   |-- produtos.json
+|   |-- pedidos-exemplo.json
+|-- docs/
+|   |-- anexos.md
+|   |-- checklist-entrega.md
+|   |-- decisoes-tecnicas.md
+|   |-- descricao-arquitetura.md
+|   |-- evidencias-testes.md
+|   |-- plano-de-custos.md
+|   |-- roteiro-apresentacao.md
+|   |-- sugestao-figma.md
+|-- infraestrutura/
+|   |-- cloudformation-template.yaml
+|-- src/
+|   |-- frontend/
+|   |   |-- index.html
+|   |   |-- script.js
+|   |   |-- styles.css
+|   |-- lambda/
+|       |-- evento-teste.json
+|       |-- package.json
+|       |-- processar-pedido.js
+```
+
+## Como visualizar o front-end
+
+1. Acesse a pasta:
+
+```bash
+cd src/frontend
+```
+
+2. Abra o arquivo `index.html` no navegador.
+
+A página simula uma vitrine simples da farmácia e um formulário de pedido. O envio do formulário gera uma simulação do objeto que poderia ser processado pela AWS Lambda.
+
+## Como testar a função Lambda localmente
+
+A função está em `src/lambda/processar-pedido.js`.
+
+```bash
+cd src/lambda
+npm install
+npm start
+```
+
+Resultado esperado: o terminal deve exibir um pedido processado com status `Recebido`.
+
+## Banco de dados simulado
+
+A pasta `banco-dados` possui arquivos JSON usados como exemplo de estrutura para tabelas do DynamoDB:
+
+- `produtos.json`: lista de produtos fictícios;
+- `pedidos-exemplo.json`: exemplo de pedido registrado.
+
+## Infraestrutura
+
+O arquivo `infraestrutura/cloudformation-template.yaml` apresenta um template educacional para criação inicial dos recursos:
+
+- Bucket S3;
+- Tabela de produtos no DynamoDB;
+- Tabela de pedidos no DynamoDB;
+- Role IAM para Lambda;
+- Função Lambda educacional com código inline.
+
+> Observação: antes de executar qualquer template em uma conta real da AWS, é necessário revisar nomes, permissões, região, segurança e possíveis custos.
+
+## Minhas decisões de projeto
+
+Para deixar a proposta simples e de baixo custo, optei por uma arquitetura serverless. A ideia é evitar servidores sempre ligados e usar serviços gerenciados, permitindo que a farmácia comece pequena e aumente a capacidade conforme a demanda.
+
+Também separei o projeto em pastas para facilitar a avaliação: documentação, arquitetura, infraestrutura, front-end, Lambda e exemplos de dados.
+
+## Possíveis melhorias futuras
+
+- Integrar o front-end com uma API real via Amazon API Gateway;
+- Salvar pedidos diretamente no DynamoDB;
+- Adicionar autenticação de usuários com Amazon Cognito;
+- Criar painel administrativo para produtos e pedidos;
+- Adicionar monitoramento com Amazon CloudWatch;
+- Publicar o site estático no Amazon S3 ou com Amazon CloudFront.
+
+## Entrega para a DIO
+
+Para entregar o projeto:
+
+1. Criar um repositório público no GitHub;
+2. Enviar todos os arquivos desta pasta;
+3. Inserir a descrição do projeto no campo de descrição do GitHub;
+4. Conferir se o README aparece corretamente;
+5. Enviar o link do repositório na plataforma da DIO.
+
+## Referências
+
+- Amazon S3: https://aws.amazon.com/s3/
+- AWS Lambda: https://aws.amazon.com/lambda/
+- Amazon DynamoDB: https://aws.amazon.com/dynamodb/
+- AWS CloudFormation: https://aws.amazon.com/cloudformation/

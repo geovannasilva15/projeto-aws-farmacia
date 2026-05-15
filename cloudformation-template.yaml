@@ -1,0 +1,32 @@
+# Checklist de entrega - DIO
+
+Use este checklist antes de enviar o link do repositorio.
+
+## Repositorio
+
+- [x] README.md criado com descricao completa do projeto.
+- [x] Relatorio de implementacao em Markdown incluído.
+- [x] Relatorio de implementacao em PDF incluído.
+- [x] Diagrama de arquitetura incluído.
+- [x] Estrutura de pastas organizada.
+- [x] Codigo de exemplo da Lambda incluído.
+- [x] Front-end simples incluído.
+- [x] Arquivos JSON de exemplo incluídos.
+- [x] Template de infraestrutura incluído.
+
+## GitHub
+
+- [ ] Criar repositorio publico.
+- [ ] Enviar todos os arquivos da pasta.
+- [ ] Inserir descricao curta do projeto no campo Description.
+- [ ] Inserir os topicos sugeridos: aws, lambda, dynamodb, serverless, dio.
+- [ ] Conferir se o README abre corretamente na pagina inicial do repositorio.
+- [ ] Copiar o link do repositorio para envio na DIO.
+
+## Conferencia final
+
+- [ ] O nome da responsavel esta correto.
+- [ ] O nome da empresa ficticia esta correto.
+- [ ] O relatorio esta anexado.
+- [ ] A arquitetura esta clara.
+- [ ] O projeto mostra os tres servicos AWS solicitados.
